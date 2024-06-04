@@ -1,0 +1,67 @@
+/* styles.css */
+body {
+    font-family: 'Century Gothic', sans-serif;
+    background-color: #e0f7fa;  /* Light Blue */
+    color: #000000;  /* Black */
+}
+
+.stMarkdown, .stTextInput, .stButton, .stSelectbox, .stRadio {
+    color: #000000;  /* Black */
+}
+
+.stButton button {
+    background-color: #2196F3;  /* Medium Blue */
+    color: white;  /* White */
+}
+
+.stButton button:hover {
+    background-color: #1976D2;  /* Darker Blue */
+}
+
+.stTextInput input {
+    background-color: #ffffff;  /* White */
+    color: #000000;  /* Black */
+    border: 1px solid #2196F3;  /* Medium Blue */
+}
+
+.stSelectbox .css-1hwfws3 {
+    background-color: #ffffff;  /* White */
+    color: #000000;  /* Black */
+}
+
+.stRadio .st-bw {
+    background-color: #ffffff;  /* White */
+    color: #000000;  /* Black */
+    border: 1px solid #2196F3;  /* Medium Blue */
+}
+
+.stRadio .st-bw .st-ae {
+    background-color: #2196F3;  /* Medium Blue */
+}
+
+.stRadio .st-bw .st-d5 {
+    color: #000000;  /* Black */
+}
+
+/* Sidebar styles */
+.css-1d391kg, .css-1gk0x5g {
+    background-color: #e0f7fa;  /* Light Blue */
+}
+
+.css-1d391kg .css-1v3fvcr, .css-1gk0x5g .css-1v3fvcr {
+    color: #000000;  /* Black */
+}
+
+.css-1d391kg .css-1n76uvr, .css-1gk0x5g .css-1n76uvr {
+    background-color: #ffffff;  /* White */
+    color: #000000;  /* Black */
+    border: 1px solid #2196F3;  /* Medium Blue */
+}
+
+.css-1d391kg .css-1v3fvcr .css-10trblm, .css-1gk0x5g .css-1v3fvcr .css-10trblm {
+    background-color: #2196F3;  /* Medium Blue */
+}
+
+.css-1d391kg .css-1v3fvcr .css-10trblm:hover, .css-1gk0x5g .css-1v3fvcr .css-10trblm:hover {
+    background-color: #1976D2;  /* Darker Blue */
+}
