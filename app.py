@@ -4,6 +4,7 @@ nltk.download("punkt")
 nltk.download("stopwords")
 nltk.download("wordnet")
 nltk.download('averaged_perceptron_tagger')
+nltk.download('omw-1.4')
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
@@ -16,6 +17,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import base64
 from nltk import FreqDist
+import textstat
+import spacy
+from spacy import displacy
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="📚", layout="wide")
