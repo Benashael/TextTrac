@@ -28,6 +28,14 @@ st.title("TextTrac: Navigate Text Data with AutoNLP")
 
 page = st.sidebar.radio("**Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Dependency Parsing 🧩", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
+# Function to load the CSS file
+def load_css(file_path):
+    with open(file_path) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+# Load the CSS file
+load_css('styles.css')
+
 # Function to tokenize text
 @st.cache_resource
 def tokenize_text(text, tokenization_type):
