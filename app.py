@@ -24,7 +24,7 @@ st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_
 
 st.title("TextTrac: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Dependency Parsing 🧩", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
+page = st.sidebar.radio("**Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
 # Function to load the CSS file
 def load_css(file_path):
