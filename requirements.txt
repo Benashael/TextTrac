@@ -6,3 +6,6 @@ pandas
 scikit-learn
 textstat
 spacy
+
+# Specific models and data for spaCy
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.3.0/en_core_web_sm-3.3.0.tar.gz
