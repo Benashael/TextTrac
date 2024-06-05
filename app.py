@@ -175,7 +175,7 @@ def analyze_text_complexity(text):
     }
 
 # Tokenization Page
-if page == "Tokenization":
+if page == "Tokenization 🔠":
     st.title("Tokenization Page")
     tokenization_type = st.radio("Choose tokenization type", ["Word Tokenization", "Sentence Tokenization"])
     input_type = st.radio("Choose input type", ["Text Input", "TXT File Upload"])
