@@ -19,6 +19,7 @@ import base64
 from nltk import FreqDist
 import textstat
 import spacy
+spacy.cli.download("en_core_web_sm")
 from spacy import displacy
 
 # Set up Streamlit app
