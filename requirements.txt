@@ -4,6 +4,5 @@ wordcloud
 matplotlib
 pandas
 scikit-learn
-base64
 textstat
 spacy
