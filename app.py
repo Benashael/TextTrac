@@ -174,3 +174,42 @@ def analyze_text_complexity(text):
         "Text Standard": textstat.text_standard(text)
     }
 
+# Tokenization Page
+if page == "Tokenization":
+    st.title("Tokenization Page")
+    tokenization_type = st.radio("Choose tokenization type", ["Word Tokenization", "Sentence Tokenization"])
+    input_type = st.radio("Choose input type", ["Text Input", "TXT File Upload"])
+    
+    if input_type == "Text Input":
+        max_word_limit = 300
+        st.write(f"Maximum Word Limit: {max_word_limit} words")
+        text_input = st.text_area("Enter text:")
+        if st.button("Perform Tokenization"):
+            if len(word_tokenize(text_input)) > max_word_limit:
+                st.error(f"Word count exceeds the maximum limit of {max_word_limit} words.")
+            else:
+                tokens = tokenize_text(text_input, tokenization_type)
+                st.subheader("Tokens:")
+                st.write(tokens)
+    
+    elif input_type == "TXT File Upload":
+        max_word_limit = 3000
+        st.write(f"Maximum Word Limit: {max_word_limit} words")
+        uploaded_file = st.file_uploader("Upload a text file", type=["txt"])
+        if st.button("Perform Tokenization"):
+            if uploaded_file is not None:
+                file_contents = uploaded_file.read()
+                try:
+                    file_contents = file_contents.decode("utf-8")
+                    if len(word_tokenize(file_contents)) > max_word_limit:
+                        st.error(f"Word count exceeds the maximum limit of {max_word_limit} words.")
+                    else:
+                        tokens = tokenize_text(file_contents, tokenization_type)
+                        st.subheader("Tokens:")
+                        st.write(tokens)
+                        
+                except UnicodeDecodeError:
+                    st.error("Invalid input: The uploaded file contains non-text data or is not in UTF-8 format.")
+            else:
+                st.info("Please upload a .txt file.")
+
