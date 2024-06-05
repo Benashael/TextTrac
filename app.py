@@ -18,9 +18,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 import base64
 from nltk import FreqDist
 import textstat
-import spacy
-spacy.cli.download("en_core_web_sm")
-from spacy import displacy
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="📚", layout="wide")
@@ -177,10 +174,3 @@ def analyze_text_complexity(text):
         "Text Standard": textstat.text_standard(text)
     }
 
-# Load spaCy model
-nlp = spacy.load("en_core_web_sm")
-
-# Function to perform dependency parsing
-def dependency_parse(text):
-    doc = nlp(text)
-    return doc
