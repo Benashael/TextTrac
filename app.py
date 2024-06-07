@@ -69,11 +69,12 @@ def get_input():
     
     elif input_type == "Example Dataset":
         example_dataset = "example_dataset.txt"
-        response = requests.get(example_dataset)
-        text_content = response.text
-        file_contents = text_content.read().decode("utf-8")
-        st.session_state.input_data = file_contents
-        st.session_state.max_word_limit = max_word_limit
+        with open('example_dataset', 'r') as file:
+            lines = file.readlines()
+        for line in lines:
+            file_contents = line.strip()
+            st.session_state.input_data = file_contents
+            st.session_state.max_word_limit = max_word_limit
 
 # Function to tokenize text
 @st.cache_resource
