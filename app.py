@@ -22,9 +22,12 @@ import textstat
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="📚", layout="wide")
 
-st.title("TextTrac: Navigate Text Data with AutoNLP")
+st.title("# TextTrac: Navigate Text Data with AutoNLP")
 
 page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
+
+input_type = st.radio("**🔍 Choose input type**", ["Text Input 📝", "TXT File Upload 📄"])
+input_data, max_word_limit = get_input(input_type)
 
 def get_input(input_type):
     if input_type == "Text Input":
@@ -196,7 +199,7 @@ def analyze_text_complexity(text):
 # Tokenization Page
 if page == "Tokenization 🔠":
     st.title("🔠 Tokenization Page")
-    tokenization_type = st.radio("🧩 Choose tokenization type", ["Word Tokenization", "Sentence Tokenization"])
+    tokenization_type = st.radio("**🧩 Choose tokenization type**", ["Word Tokenization", "Sentence Tokenization"])
 
     if st.button("🚀 Perform Tokenization"):
         if input_data:
