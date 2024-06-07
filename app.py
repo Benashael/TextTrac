@@ -26,36 +26,39 @@ st.title("TextTrac: Navigate Text Data with AutoNLP")
 
 page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
-def get_input(input_type):
-    if input_type == "Text Input 📝":
+def get_input():
+    if "input_type" not in st.session_state:
+        st.session_state.input_type = "Text Input"
+
+    input_type = st.radio("**🔍 Choose input type**", ["Text Input", "TXT File Upload"], key="input_type")
+
+    if input_type == "Text Input":
         max_word_limit = 300
         st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
-        text_input = st.text_area("📝 Enter text:")
-        if not text_input.strip():
-            st.error("❌ Error: Text input cannot be blank.")
-            return None, max_word_limit
-        return text_input, max_word_limit
+        text_input = st.text_area("📝 Enter text:", key="text_input")
+        if st.button("Submit Text"):
+            if not text_input.strip():
+                st.error("❌ Error: Text input cannot be blank.")
+            else:
+                st.session_state.input_data = text_input
+                st.session_state.max_word_limit = max_word_limit
 
-    elif input_type == "TXT File Upload 📄":
+    elif input_type == "TXT File Upload":
         max_word_limit = 3000
         st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
-        uploaded_file = st.file_uploader("📄 Upload a text file", type=["txt"])
-        if uploaded_file is not None:
-            try:
-                file_contents = uploaded_file.read().decode("utf-8")
-                if not file_contents.strip():
-                    st.error("❌ Error: The uploaded file is empty.")
-                    return None, max_word_limit
-                return file_contents, max_word_limit
-            except UnicodeDecodeError:
-                st.error("❌ Error: The uploaded file contains non-text data or is not in UTF-8 format.")
-                return None, max_word_limit
-        return None, max_word_limit
-    return None, 0
-    
-input_type = st.radio("**🔍 Choose input type**", ["Text Input 📝", "TXT File Upload 📄"])
-input_data, max_word_limit = get_input(input_type)
-
+        uploaded_file = st.file_uploader("📄 Upload a text file", type=["txt"], key="uploaded_file")
+        if st.button("Submit File"):
+            if uploaded_file is not None:
+                try:
+                    file_contents = uploaded_file.read().decode("utf-8")
+                    if not file_contents.strip():
+                        st.error("❌ Error: The uploaded file is empty.")
+                    else:
+                        st.session_state.input_data = file_contents
+                        st.session_state.max_word_limit = max_word_limit
+                except UnicodeDecodeError:
+                    st.error("❌ Error: The uploaded file contains non-text data or is not in UTF-8 format.")
+                    
 # Function to tokenize text
 @st.cache_resource
 def tokenize_text(text, tokenization_type):
@@ -195,6 +198,13 @@ def analyze_text_complexity(text):
         "Gunning Fog": textstat.gunning_fog(text),
         "Text Standard": textstat.text_standard(text)
     }
+
+# List of pages to exclude the common input section
+exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄"]
+
+if page not in exclude_input_pages:
+    # Common input section for pages not in the exclude list
+    get_input()
 
 # Tokenization Page
 if page == "Tokenization 🔠":
