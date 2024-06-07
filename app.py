@@ -36,7 +36,7 @@ def get_input():
     if "input_type" not in st.session_state:
         st.session_state.input_type = "Text Input"
 
-    input_type = st.radio("**🔍 Choose input type**", ["Text Input", "TXT File Upload"], key="input_type")
+    input_type = st.radio("**🔍 Choose input type**", ["Text Input", "TXT File Upload", "Example Dataset"], key="input_type")
 
     if input_type == "Text Input":
         max_word_limit = 300
@@ -66,6 +66,9 @@ def get_input():
                     st.error("❌ Error: The uploaded file contains non-text data or is not in UTF-8 format.")
             else:
                 st.error("❌ Error: Please upload a file.")
+    
+    elif input_type == "Example Dataset":
+        
 
 # Function to tokenize text
 @st.cache_resource
