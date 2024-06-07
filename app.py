@@ -240,7 +240,7 @@ if page == "Tokenization 🔠":
 
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
-    st.title("🔤 Synonym and Antonym Detection Page")
+    st.header("🔤 Synonym and Antonym Detection Page")
 
     if "input_data" in st.session_state:
         if st.button("🔍 Find Synonyms and Antonyms"):
@@ -251,4 +251,18 @@ elif page == "Synonym and Antonym Detection 🔤":
     else:
         st.info("⚠️ Please provide text input or upload a file.")
 
+    
+# Page 12
+elif page == "Text Complexity Analysis 📊":
+    st.header("Text Complexity Analysis 📊")
+
+    if "input_data" in st.session_state:
+        if st.button("🚀 Analyze Text Complexity"):
+            complexity_metrics = analyze_text_complexity(st.session_state.input_data)
+            st.subheader("📈 Text Complexity Analysis Results:")
+            for metric, value in complexity_metrics.items():
+                st.write(f"**- {metric}: {value}**")
+
+    else:
+        st.info("⚠️ Please provide text input or upload a file.")
     
