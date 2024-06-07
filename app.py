@@ -254,6 +254,22 @@ elif page == "Stopwords Removal 🛑":
     else:
         st.info("⚠️ Please provide text input or upload a file.")
 
+# Page 4
+elif page == "Stemming 🌱":
+    st.title("StStemming 🌱 Page")
+    tokenization_type = "Word Tokenization"
+
+    if "input_data" in st.session_state:
+        tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+        st.subheader("🌱 Tokens (Before Stemming):")
+        st.write(tokens)
+        # Perform stemming
+        stemmed_tokens = perform_stemming(tokens)
+        st.subheader("✂️ Tokens (After Stemming):")
+        st.write(stemmed_tokens)
+    else:
+        st.info("⚠️ Please provide text input or upload a file.")  
+
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Page")
