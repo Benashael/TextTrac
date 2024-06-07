@@ -256,7 +256,7 @@ elif page == "Stopwords Removal 🛑":
 
 # Page 4
 elif page == "Stemming 🌱":
-    st.title("StStemming 🌱 Page")
+    st.header("Stemming 🌱 Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
