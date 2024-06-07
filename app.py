@@ -24,7 +24,7 @@ st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_
 
 st.title("TextTrac: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
+page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -238,3 +238,15 @@ if page == "Tokenization 🔠":
                 st.write(tokens)
     else:
         st.info("⚠️ Please provide text input or upload a file.")
+
+elif page == "Synonym and Antonym Detection 🔤":
+    st.title("🔤 Synonym and Antonym Detection Page")
+
+    if "input_data" in st.session_state:
+        if st.button("🔍 Find Synonyms and Antonyms"):
+            results = process_text_for_synonyms_antonyms(st.session_state.input_data)
+            results_df = pd.DataFrame(results, columns=["Word", "Synonyms", "Antonyms"])
+            st.subheader("🔍 Synonyms and Antonyms:")
+            st.dataframe(results_df)
+    else:
+        st.info("ℹ️ Please provide text input or upload a file.")
