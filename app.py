@@ -15,7 +15,6 @@ from nltk.util import ngrams
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import base64
 from nltk import FreqDist
 import textstat
 
