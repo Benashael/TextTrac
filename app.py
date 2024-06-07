@@ -58,7 +58,9 @@ def get_input():
                         st.session_state.max_word_limit = max_word_limit
                 except UnicodeDecodeError:
                     st.error("❌ Error: The uploaded file contains non-text data or is not in UTF-8 format.")
-                    
+            else:
+                st.error("❌ Error: Please upload a file.")
+
 # Function to tokenize text
 @st.cache_resource
 def tokenize_text(text, tokenization_type):
