@@ -35,8 +35,8 @@ if input_type == "Text Input":
     text_input = st.text_area("📝 Enter text:")
     if not text_input.strip():
         st.error("❌ Error: Text input cannot be blank.")
-        return None, max_word_limit
-    return text_input, max_word_limit
+        '''return None, max_word_limit
+    return text_input, max_word_limit'''
 
 elif input_type == "TXT File Upload":
     max_word_limit = 3000
@@ -47,13 +47,13 @@ elif input_type == "TXT File Upload":
             file_contents = uploaded_file.read().decode("utf-8")
             if not file_contents.strip():
                 st.error("❌ Error: The uploaded file is empty.")
-                return None, max_word_limit
-            return file_contents, max_word_limit
+                '''return None, max_word_limit
+            return file_contents, max_word_limit'''
         except UnicodeDecodeError:
             st.error("❌ Error: The uploaded file contains non-text data or is not in UTF-8 format.")
-            return None, max_word_limit
+            '''return None, max_word_limit
     return None, max_word_limit
-return None, 0
+return None, 0'''
 
 # input_data, max_word_limit = get_input(input_type)
 
