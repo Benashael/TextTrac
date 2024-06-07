@@ -244,19 +244,36 @@ elif page == "Stopwords Removal 🛑":
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
-        tokens = tokenize_text(st.session_state.input_data, tokenization_type)
-        st.subheader("📝 Tokens (Before Stopwords Removal):")
-        st.write(tokens)
-        # Remove stopwords
-        filtered_tokens = remove_stopwords(tokens)
-        st.subheader("🚫 Tokens (After Stopwords Removal):")
-        st.write(filtered_tokens)
+        if st.button("🚫 Remove Stopwords"):
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            st.subheader("📝 Tokens (Before Stopwords Removal):")
+            st.write(tokens)
+            # Remove stopwords
+            filtered_tokens = remove_stopwords(tokens)
+            st.subheader("🚫 Tokens (After Stopwords Removal):")
+            st.write(filtered_tokens)
     else:
         st.info("⚠️ Please provide text input or upload a file.")
 
 # Page 4
 elif page == "Stemming 🌱":
     st.header("Stemming 🌱 Page")
+    tokenization_type = "Word Tokenization"
+
+    if "input_data" in st.session_state:
+        tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+        st.subheader("🌱 Tokens (Before Stemming):")
+        st.write(tokens)
+        # Perform stemming
+        stemmed_tokens = perform_stemming(tokens)
+        st.subheader("✂️ Tokens (After Stemming):")
+        st.write(stemmed_tokens)
+    else:
+        st.info("⚠️ Please provide text input or upload a file.")  
+
+# Page 5
+elif page == "Lemmatization 🌿":
+    st.header("Lemmatization 🌿 Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
