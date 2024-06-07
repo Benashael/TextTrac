@@ -264,9 +264,9 @@ elif page == "Stemming 🌱":
         if st.button("✂️ Perform Stemming"):
             tokens = tokenize_text(st.session_state.input_data, tokenization_type)
             st.subheader("🌱 Tokens (Before Stemming):")
-            st.write(tokens)
+            st.write(filtered_tokens)
             # Perform stemming
-            stemmed_tokens = perform_stemming(tokens)
+            stemmed_tokens = perform_stemming(filtered_tokens)
             st.subheader("✂️ Tokens (After Stemming):")
             st.write(stemmed_tokens)
     else:
