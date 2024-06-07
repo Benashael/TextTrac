@@ -254,7 +254,7 @@ elif page == "Synonym and Antonym Detection 🔤":
                 csv = results_df.to_csv(index=False)
                 b64 = base64.b64encode(csv.encode()).decode()  # Encode to base64
                 href = f'data:file/csv;base64,{b64}'
-                st.markdown(f'<a href="{href}" download="synonyms_antonyms_content.csv">Click here to download the document with Synonyms & Antonyms</a>', unsafe_allow_html=True)
+                st.write(f'<a href="{href}" download="synonyms_antonyms_content.csv">Click here to download the document with Synonyms & Antonyms</a>', unsafe_allow_html=True)
     
     else:
         st.info("⚠️ Please provide text input or upload a file.")
