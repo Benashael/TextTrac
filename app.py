@@ -222,7 +222,7 @@ if page not in exclude_input_pages:
     st.info("⚠️ Click '🗑️ Clear Input' to reset the text input and file upload fields. This will clear all entered data and allow you to start fresh.")
 
 
-# Tokenization Page
+# Page 2
 if page == "Tokenization 🔠":
     st.header("🔠 Tokenization Page")
     
@@ -238,6 +238,7 @@ if page == "Tokenization 🔠":
     else:
         st.info("⚠️ Please provide text input or upload a file.")
 
+# Page 10
 elif page == "Synonym and Antonym Detection 🔤":
     st.title("🔤 Synonym and Antonym Detection Page")
 
