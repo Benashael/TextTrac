@@ -69,7 +69,7 @@ def get_input():
     
     elif input_type == "Example Dataset":
         example_dataset = "example_dataset.txt"
-        with open('example_dataset', 'r') as file:
+        with open('example_dataset.txt', 'r') as file:
             lines = file.readlines()
         for line in lines:
             file_contents = line.strip()
