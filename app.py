@@ -208,6 +208,11 @@ if page not in exclude_input_pages:
     # Common input section for pages not in the exclude list
     get_input()
 
+    # Add a button to clear the session state
+    if st.button("🗑️ Clear Input"):
+        clear_session_state()
+        st.experimental_rerun()
+
 # Tokenization Page
 if page == "Tokenization 🔠":
     st.header("🔠 Tokenization Page")
