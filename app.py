@@ -220,6 +220,9 @@ if page not in exclude_input_pages:
         clear_session_state()
         st.experimental_rerun()
 
+    st.info("⚠️ Click '🗑️ Clear Input' to reset the text input and file upload fields. This will clear all entered data and allow you to start fresh.")
+
+
 # Tokenization Page
 if page == "Tokenization 🔠":
     st.header("🔠 Tokenization Page")
