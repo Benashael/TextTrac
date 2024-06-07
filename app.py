@@ -7,7 +7,7 @@ nltk.download('averaged_perceptron_tagger')
 nltk.download('omw-1.4')
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
-from nltk.corpus import stopwords
+from nltk.corpus import stopwords, wordnet
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize, sent_tokenize
