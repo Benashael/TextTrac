@@ -247,11 +247,12 @@ elif page == "Stopwords Removal 🛑":
         tokens = tokenize_text(st.session_state.input_data, tokenization_type)
         st.subheader("📝 Tokens (Before Stopwords Removal):")
         st.write(tokens)
-        
         # Remove stopwords
         filtered_tokens = remove_stopwords(tokens)
         st.subheader("🚫 Tokens (After Stopwords Removal):")
         st.write(filtered_tokens)
+    else:
+        st.info("⚠️ Please provide text input or upload a file.")
 
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
