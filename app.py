@@ -37,7 +37,7 @@ def get_input(input_type):
         return text_input, max_word_limit
 
     elif input_type == "TXT File Upload":
-         max_word_limit = 3000
+        max_word_limit = 3000
         st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
         uploaded_file = st.file_uploader("📄 Upload a text file", type=["txt"])
         if uploaded_file is not None:
