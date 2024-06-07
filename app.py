@@ -26,9 +26,6 @@ st.title("# TextTrac: Navigate Text Data with AutoNLP")
 
 page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
-input_type = st.radio("**🔍 Choose input type**", ["Text Input 📝", "TXT File Upload 📄"])
-input_data, max_word_limit = get_input(input_type)
-
 def get_input(input_type):
     if input_type == "Text Input":
         max_word_limit = 300
@@ -55,6 +52,9 @@ def get_input(input_type):
                 return None, max_word_limit
         return None, max_word_limit
     return None, 0
+
+input_type = st.radio("**🔍 Choose input type**", ["Text Input 📝", "TXT File Upload 📄"])
+input_data, max_word_limit = get_input(input_type)
 
 # Function to tokenize text
 @st.cache_resource
