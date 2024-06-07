@@ -249,4 +249,4 @@ elif page == "Synonym and Antonym Detection 🔤":
             st.subheader("🔍 Synonyms and Antonyms:")
             st.dataframe(results_df)
     else:
-        st.info("ℹ️ Please provide text input or upload a file.")
+        st.info("⚠️ Please provide text input or upload a file.")
