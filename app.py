@@ -209,15 +209,15 @@ if page not in exclude_input_pages:
 # Tokenization Page
 if page == "Tokenization 🔠":
     st.header("🔠 Tokenization Page")
-    tokenization_type = st.radio("**🧩 Choose tokenization type**", ["Word Tokenization", "Sentence Tokenization"])
-
-    if st.button("🚀 Perform Tokenization"):
-        if input_data:
-            if len(word_tokenize(input_data)) > max_word_limit:
-                st.error(f"❌ Word count exceeds the maximum limit of {max_word_limit} words.")
+    
+    if "input_data" in st.session_state:
+        tokenization_type = st.radio("**🧩 Choose tokenization type**", ["Word Tokenization", "Sentence Tokenization"])
+        if st.button("🚀 Perform Tokenization"):
+            if len(word_tokenize(st.session_state.input_data)) > st.session_state.max_word_limit:
+                st.error(f"❌ Word count exceeds the maximum limit of {st.session_state.max_word_limit} words.")
             else:
-                tokens = tokenize_text(input_data, tokenization_type)
+                tokens = tokenize_text(st.session_state.input_data, tokenization_type)
                 st.subheader("🔍 Tokens:")
                 st.write(tokens)
-        else:
-            st.info("⚠️ Please provide text input or upload a file.")
+    else:
+        st.info("⚠️ Please provide text input or upload a file.")
