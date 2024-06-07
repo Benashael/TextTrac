@@ -238,6 +238,21 @@ if page == "Tokenization 🔠":
     else:
         st.info("⚠️ Please provide text input or upload a file.")
 
+# Page 3
+elif page == "Stopwords Removal 🛑":
+    st.header("Stopwords Removal 🛑 Page")
+    tokenization_type = "Word Tokenization"
+
+    if "input_data" in st.session_state:
+        tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+        st.subheader("📝 Tokens (Before Stopwords Removal):")
+        st.write(tokens)
+        
+        # Remove stopwords
+        filtered_tokens = remove_stopwords(tokens)
+        st.subheader("🚫 Tokens (After Stopwords Removal):")
+        st.write(filtered_tokens)
+
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Page")
@@ -251,7 +266,6 @@ elif page == "Synonym and Antonym Detection 🔤":
     else:
         st.info("⚠️ Please provide text input or upload a file.")
 
-    
 # Page 12
 elif page == "Text Complexity Analysis 📊":
     st.header("Text Complexity Analysis 📊")
