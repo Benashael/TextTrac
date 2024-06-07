@@ -68,8 +68,10 @@ def get_input():
                 st.error("❌ Error: Please upload a file.")
     
     elif input_type == "Example Dataset":
-        example_dataset_url = "example_dataset.txt"
-        
+        example_dataset = "example_dataset.txt"
+        file_contents = example_dataset.read().decode("utf-8")
+        st.session_state.input_data = file_contents
+        st.session_state.max_word_limit = max_word_limit
 
 # Function to tokenize text
 @st.cache_resource
