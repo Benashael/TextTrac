@@ -68,6 +68,7 @@ def get_input():
                 st.error("❌ Error: Please upload a file.")
     
     elif input_type == "Example Dataset":
+        example_dataset_url = "example_dataset.txt"
         
 
 # Function to tokenize text
