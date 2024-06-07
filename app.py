@@ -74,8 +74,7 @@ def get_input():
         for line in lines:
             file_contents = line.strip()
             st.session_state.input_data = file_contents
-            st.session_state.max_word_limit = max_word_limit
-
+        
 # Function to tokenize text
 @st.cache_resource
 def tokenize_text(text, tokenization_type):
