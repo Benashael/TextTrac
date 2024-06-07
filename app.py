@@ -26,6 +26,13 @@ st.title("TextTrac: Navigate Text Data with AutoNLP")
 
 page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔍", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
+def clear_session_state():
+    st.session_state.pop("input_type", None)
+    st.session_state.pop("text_input", None)
+    st.session_state.pop("uploaded_file", None)
+    st.session_state.pop("input_data", None)
+    st.session_state.pop("max_word_limit", None)
+
 def get_input():
     if "input_type" not in st.session_state:
         st.session_state.input_type = "Text Input"
