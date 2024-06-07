@@ -43,7 +43,7 @@ def get_input():
         max_word_limit = 300
         st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
         text_input = st.text_area("📝 Enter text:", key="text_input")
-        if st.button("Submit Text 📝"):
+        if st.button("📝 Submit Text"):
             if not text_input.strip():
                 st.error("❌ Error: Text input cannot be blank.")
             else:
@@ -54,7 +54,7 @@ def get_input():
         max_word_limit = 3000
         st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
         uploaded_file = st.file_uploader("📄 Upload a text file", type=["txt"], key="uploaded_file")
-        if st.button("Submit File 📄"):
+        if st.button("📄 Submit File"):
             if uploaded_file is not None:
                 try:
                     file_contents = uploaded_file.read().decode("utf-8")
