@@ -263,6 +263,7 @@ elif page == "Stemming 🌱":
     if "input_data" in st.session_state:
         if st.button("✂️ Perform Stemming"):
             tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            filtered_tokens = remove_stopwords(tokens)
             st.subheader("🌱 Tokens (Before Stemming):")
             st.write(filtered_tokens)
             # Perform stemming
@@ -280,12 +281,13 @@ elif page == "Lemmatization 🌿":
     if "input_data" in st.session_state:
         if st.button("📚 Perform Lemmatization"):
             tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            filtered_tokens = remove_stopwords(tokens)
             st.subheader("🌿 Tokens (Before Lemmatization):")
-            st.write(tokens)
+            st.write(filtered_tokens)
             # Perform stemming
-            stemmed_tokens = perform_stemming(tokens)
+            lemmatized_tokens = perform_lemmatization(filtered_tokens)
             st.subheader("📚 Tokens (After Lemmatization):")
-            st.write(stemmed_tokens)
+            st.write(lemmatized_tokens)
     else:
         st.info("⚠️ Please provide text input or upload a file.")  
 
