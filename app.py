@@ -363,14 +363,14 @@ elif page == "N-Grams 🔢":
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
+        n_gram_type = st.radio("**🧩 Choose N-Gram Type**", ["Uni-Grams (1-Grams)", "Bi-Grams (2-Grams)", "Tri-Grams (3-Grams)"])
+        if n_gram_type == "Uni-Grams (1-Grams)":
+            n = 1
+        elif n_gram_type == "Bi-Grams (2-Grams)":
+            n = 2
+        elif n_gram_type == "Tri-Grams (3-Grams)":
+            n = 3
         if st.button("⚙️ Generate N-Grams"):
-            n_gram_type = st.radio("**🧩 Choose N-Gram Type**", ["Uni-Grams (1-Grams)", "Bi-Grams (2-Grams)", "Tri-Grams (3-Grams)"])
-            if n_gram_type == "Uni-Grams (1-Grams)":
-                n = 1
-            elif n_gram_type == "Bi-Grams (2-Grams)":
-                n = 2
-            elif n_gram_type == "Tri-Grams (3-Grams)":
-                n = 3
             tokens = tokenize_text(st.session_state.input_data, tokenization_type)
             n_grams = create_ngrams(tokens, n)
             n_grams_text = generate_ngrams_text(n_grams)    
