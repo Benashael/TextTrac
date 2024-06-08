@@ -336,6 +336,20 @@ elif page == "Lemmatization 🌿":
     else:
         st.info("⚠️ Please provide text input or upload a file.")  
 
+# Page 7
+elif page == "Word Cloud ☁️":
+    st.header("Word Cloud ☁️ Page")
+    tokenization_type = "Word Tokenization"
+
+    if "input_data" in st.session_state:
+        if st.button("⚙️ Generate Word Cloud"):
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            filtered_tokens = remove_stopwords(tokens)
+            st.subheader("☁️ Word Cloud:")
+            generate_word_cloud(filtered_tokens)
+    else:
+        st.info("⚠️ Please provide text input or upload a file.")
+
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Page")
