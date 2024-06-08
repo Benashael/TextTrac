@@ -244,7 +244,7 @@ if page == "Tokenization 🔠":
                 st.subheader("🔍 Tokens:")
                 st.write(tokens)
     else:
-        st.info("⚠️ Please provide text input or upload a file.")
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 3
 elif page == "POS Tagging 🏷️":
@@ -281,7 +281,7 @@ elif page == "POS Tagging 🏷️":
             st.subheader("🏷️ POS Tags with Icons and Descriptions::")
             st.dataframe(pos_df)
     else:
-        st.info("⚠️ Please provide text input or upload a file.")
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 4
 elif page == "Stopwords Removal 🛑":
@@ -298,7 +298,7 @@ elif page == "Stopwords Removal 🛑":
             st.subheader("🚫 Tokens (After Stopwords Removal):")
             st.write(filtered_tokens)
     else:
-        st.info("⚠️ Please provide text input or upload a file.")
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 5
 elif page == "Stemming 🌱":
@@ -316,7 +316,7 @@ elif page == "Stemming 🌱":
             st.subheader("✂️ Tokens (After Stemming):")
             st.write(stemmed_tokens)
     else:
-        st.info("⚠️ Please provide text input or upload a file.")  
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")  
 
 # Page 6
 elif page == "Lemmatization 🌿":
@@ -334,7 +334,7 @@ elif page == "Lemmatization 🌿":
             st.subheader("📚 Tokens (After Lemmatization):")
             st.write(lemmatized_tokens)
     else:
-        st.info("⚠️ Please provide text input or upload a file.")  
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")  
 
 # Page 7
 elif page == "Word Cloud ☁️":
@@ -348,20 +348,23 @@ elif page == "Word Cloud ☁️":
             st.subheader("☁️ Word Cloud:")
             generate_word_cloud(filtered_tokens)
     else:
-        st.info("⚠️ Please provide text input or upload a file.")
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Page")
+    tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
         if st.button("🔍 Find Synonyms and Antonyms"):
-            results = process_text_for_synonyms_antonyms(st.session_state.input_data)
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            filtered_tokens = remove_stopwords(tokens)
+            results = process_text_for_synonyms_antonyms(filtered_tokens)
             results_df = pd.DataFrame(results, columns=["Word", "Synonyms", "Antonyms"])
             st.subheader("🔍 Synonyms and Antonyms:")
             st.dataframe(results_df)
     else:
-        st.info("⚠️ Please provide text input or upload a file.")
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 12
 elif page == "Text Complexity Analysis 📊":
@@ -373,7 +376,6 @@ elif page == "Text Complexity Analysis 📊":
             st.subheader("📈 Text Complexity Analysis Results:")
             for metric, value in complexity_metrics.items():
                 st.write(f"**- {metric}: {value}**")
-
     else:
-        st.info("⚠️ Please provide text input or upload a file.")
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
     
