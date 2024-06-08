@@ -208,16 +208,46 @@ def process_text_for_synonyms_antonyms(text):
 # Function to perform text complexity analysis
 def analyze_text_complexity(text):
     return {
-        "Flesch Reading Ease": textstat.flesch_reading_ease(text),
-        "Smog Index": textstat.smog_index(text),
-        "Flesch-Kincaid Grade": textstat.flesch_kincaid_grade(text),
-        "Coleman-Liau Index": textstat.coleman_liau_index(text),
-        "Automated Readability Index": textstat.automated_readability_index(text),
-        "Dale-Chall Readability Score": textstat.dale_chall_readability_score(text),
-        "Difficult Words": textstat.difficult_words(text),
-        "Linsear Write Formula": textstat.linsear_write_formula(text),
-        "Gunning Fog": textstat.gunning_fog(text),
-        "Text Standard": textstat.text_standard(text)
+        "**😊 Flesch Reading Ease**": {
+            "Score": f"{textstat.flesch_reading_ease(text)} out of 100",
+            "Explanation": "Measures the ease of readability on a scale from 0 to 100, with higher scores indicating easier readability."
+        },
+        "**🧠 Smog Index**": {
+            "Score": f"{textstat.smog_index(text)} out of 30",
+            "Explanation": "Estimates the years of education a person needs to comprehend the text on first reading."
+        },
+        "**📚 Flesch-Kincaid Grade**": {
+            "Score": textstat.flesch_kincaid_grade(text),
+            "Explanation": "Indicates the grade level needed to understand the text, with a higher grade indicating more complexity."
+        },
+        "**🤔 Coleman-Liau Index**": {
+            "Score": textstat.coleman_liau_index(text),
+            "Explanation": "Computes the approximate U.S. grade level needed to comprehend the text."
+        },
+        "**📖 Automated Readability Index**": {
+            "Score": textstat.automated_readability_index(text),
+            "Explanation": "Estimates the U.S. grade level needed to understand the text, with higher values indicating more advanced readability."
+        },
+        "**📝 Dale-Chall Readability Score**": {
+            "Score": textstat.dale_chall_readability_score(text),
+            "Explanation": "Evaluates the comprehension difficulty of text, considering a list of familiar words."
+        },
+        "**📚🔍 Difficult Words**": {
+            "Score": f"{textstat.difficult_words(text)} out of total words",
+            "Explanation": "Counts the number of difficult words within the text, providing insight into its complexity."
+        },
+        "**🧐 Linsear Write Formula**": {
+            "Score": textstat.linsear_write_formula(text),
+            "Explanation": "Estimates the readability of English text by looking at the number of simple and complex words."
+        },
+        "**🤓 Gunning Fog**": {
+            "Score": f"{textstat.gunning_fog(text)} out of 20",
+            "Explanation": "Measures the readability of English writing, considering sentence length and the complexity of words."
+        },
+        "**🎓 Text Standard**": {
+            "Score": textstat.text_standard(text),
+            "Explanation": "Indicates the U.S. grade level for which the text is most suitable."
+        }
     }
 
 # List of pages to exclude the common input section
