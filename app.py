@@ -276,8 +276,12 @@ elif page == "POS Tagging 🏷️":
                 'MD': ('🛠️', 'Modal')
             }
             pos_df = pd.DataFrame(pos_tags, columns=["Word", "POS Tag"])
-            st.subheader("🏷️ POS Tags:")
+            pos_df['Icon'] = pos_df['POS Tag'].apply(lambda tag: pos_emoji_desc.get(tag, ('❓', 'Unknown'))[0])
+            pos_df['Description'] = pos_df['POS Tag'].apply(lambda tag: pos_emoji_desc.get(tag, ('❓', 'Unknown'))[1])
+            st.subheader("🏷️ POS Tags with Icons and Descriptions::")
             st.dataframe(pos_df)
+    else:
+        st.info("⚠️ Please provide text input or upload a file.")
 
 # Page 4
 elif page == "Stopwords Removal 🛑":
