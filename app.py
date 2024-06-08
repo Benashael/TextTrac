@@ -384,7 +384,9 @@ elif page == "Keyword Extraction 🔑":
     st.header("Keyword Extraction 🔑 Page")
 
     if "input_data" in st.session_state:
-        extract_keywords(file_contents)
+        extract_keywords(st.session_state.input_data)
+    else:
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
