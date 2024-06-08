@@ -384,7 +384,8 @@ elif page == "Keyword Extraction 🔑":
     st.header("Keyword Extraction 🔑 Page")
 
     if "input_data" in st.session_state:
-        extract_keywords(st.session_state.input_data)
+        if st.button("🔍 Extract Keywords"):
+            extract_keywords(st.session_state.input_data)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
