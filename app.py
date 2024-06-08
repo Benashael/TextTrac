@@ -280,7 +280,7 @@ if page == "Tokenization 🔠":
 
 # Page 3
 elif page == "POS Tagging 🏷️":
-    st.header("POS Tagging 🏷️ Page")
+    st.header("🏷️ POS Tagging Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -317,7 +317,7 @@ elif page == "POS Tagging 🏷️":
 
 # Page 4
 elif page == "Stopwords Removal 🛑":
-    st.header("Stopwords Removal 🛑 Page")
+    st.header("🛑 Stopwords Removal Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -334,7 +334,7 @@ elif page == "Stopwords Removal 🛑":
 
 # Page 5
 elif page == "Stemming 🌱":
-    st.header("Stemming 🌱 Page")
+    st.header("🌱 Stemming Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -352,7 +352,7 @@ elif page == "Stemming 🌱":
 
 # Page 6
 elif page == "Lemmatization 🌿":
-    st.header("Lemmatization 🌿 Page")
+    st.header("🌿 Lemmatization Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -370,7 +370,7 @@ elif page == "Lemmatization 🌿":
 
 # Page 7
 elif page == "Word Cloud ☁️":
-    st.header("Word Cloud ☁️ Page")
+    st.header("☁️ Word Cloud Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -384,7 +384,7 @@ elif page == "Word Cloud ☁️":
 
 # Page 8
 elif page == "N-Grams 🔢":
-    st.header("N-Grams 🔢 Page")
+    st.header("🔢 N-Grams Page")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -411,7 +411,7 @@ elif page == "N-Grams 🔢":
 
 # Page 9
 elif page == "Keyword Extraction 🔑":
-    st.header("Keyword Extraction 🔑 Page")
+    st.header("🔑 Keyword Extraction Page")
 
     if "input_data" in st.session_state:
         if st.button("🔍 Extract Keywords"):
@@ -434,7 +434,7 @@ elif page == "Synonym and Antonym Detection 🔤":
 
 # Page 12
 elif page == "Text Complexity Analysis 📊":
-    st.header("Text Complexity Analysis 📊")
+    st.header("📊 Text Complexity Analysis Page")
 
     if "input_data" in st.session_state:
         if st.button("🚀 Analyze Text Complexity"):
