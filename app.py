@@ -19,7 +19,7 @@ from nltk import FreqDist
 import textstat
 
 # Set up Streamlit app
-st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="📊✍️", layout="wide")
+st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
