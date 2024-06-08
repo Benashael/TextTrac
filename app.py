@@ -439,10 +439,10 @@ elif page == "Text Complexity Analysis 📊":
     if "input_data" in st.session_state:
         if st.button("🚀 Analyze Text Complexity"):
             st.subheader("📈 Text Complexity Analysis Results:")
-            analyze_text_complexity(st.session_state.input_data)
-            
-            #for metric, value in complexity_metrics.items():
-            #    st.write(f"**- {metric}: {value}**")
+            complexity_results = analyze_text_complexity(st.session_state.input_data)
+            for metric, data in complexity_results.items():
+                st.write(f"{metric}: {data['Score']}")
+                st.write(f"Explanation: {data['Explanation']}")
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
     
