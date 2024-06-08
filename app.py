@@ -352,6 +352,33 @@ elif page == "Word Cloud ☁️":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
+# Page 8
+elif page == "N-Grams 🔢":
+    st.header("N-Grams 🔢 Page")
+    tokenization_type = "Word Tokenization"
+
+    if "input_data" in st.session_state:
+        if st.button("⚙️ Generate N-Grams"):
+            n_gram_type = st.radio("**🧩 Choose N-Gram Type**", ["Uni-Grams (1-Grams)", "Bi-Grams (2-Grams)", "Tri-Grams (3-Grams)"])
+            if n_gram_type == "Uni-Grams (1-Grams)":
+                n = 1
+            elif n_gram_type == "Bi-Grams (2-Grams)":
+                n = 2
+            elif n_gram_type == "Tri-Grams (3-Grams)":
+                n = 3
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            n_grams = create_ngrams(tokens, n)
+            n_grams_text = generate_ngrams_text(n_grams)    
+            st.subheader(f"🛑 {n}-Grams (With Stopwords):")
+            st.write(n_grams_text) 
+            filtered_tokens = remove_stopwords(tokens)
+            n_grams = create_ngrams(filtered_tokens, n)
+            n_grams_text = generate_ngrams_text(n_grams)    
+            st.subheader(f"🚫 {n}-Grams (Without Stopwords):")
+            st.write(n_grams_text) 
+    else:
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
+
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Page")
