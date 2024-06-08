@@ -432,6 +432,23 @@ elif page == "Synonym and Antonym Detection 🔤":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
+# Page 11
+elif page == "Text Similarity 🔄":
+    st.header("🔄 Text Similarity Page")
+    max_word_limit = 300
+    st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
+    text1 = st.text_area("📝 Enter text 1:", key="text_input")
+    text2 = st.text_area("📝 Enter text 2:", key="text_input")
+    if st.button("🔍 Find Text Similarity"):
+        if not text1.strip() or not text2.strip():
+            st.error("⚠️ Please provide both texts for similarity comparison.")
+        elif len(word_tokenize(text1)) > max_word_limit or len(word_tokenize(text2)) > max_word_limit:
+            st.error(f"❌ Word count exceeds the maximum limit of {max_word_limit} words.")
+        else:
+            similarity_score = calculate_similarity(text1, text2)
+            st.subheader("🔄 Similarity Score:")
+            st.write(f"**The cosine similarity between the two texts is:** {similarity_score:.2f}")
+
 # Page 12
 elif page == "Text Complexity Analysis 📊":
     st.header("📊 Text Complexity Analysis Page")
