@@ -158,16 +158,11 @@ def extract_keywords(text):
     keywords_df = keywords_df.sort_values(by='Frequency', ascending=False)
     
     # Display keywords and their frequencies
-    st.subheader("Keywords and Their Frequencies (Dataframe):")
+    st.subheader("🔑 Keywords and their Frequencies (Dataframe📊💼):")
     st.dataframe(keywords_df)
-
-    csv = keywords_df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # Encode to base64
-    href = f'data:file/csv;base64,{b64}'
-    st.markdown(f'<a href="{href}" download="keyword_extraction_content.csv">Click here to download the document with Keywords and Their Frequencies</a>', unsafe_allow_html=True)
     
     # Plot keyword frequency distribution
-    st.subheader("Keywords and Their Frequencies (Visualization Plot):")
+    st.subheader("🔑 Keywords and their Frequencies (Visualization Plot📈🎨):")
     plt.figure(figsize=(10, 5))
     word_freq.plot(20, cumulative=False)
     st.pyplot(plt)
@@ -383,6 +378,13 @@ elif page == "N-Grams 🔢":
             st.write(n_grams_text) 
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
+
+# Page 9
+elif page == "Keyword Extraction 🔑":
+    st.header("Keyword Extraction 🔑 Page")
+
+    if "input_data" in st.session_state:
+        extract_keywords(file_contents)
 
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
