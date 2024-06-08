@@ -46,8 +46,12 @@ def get_input():
             if not text_input.strip():
                 st.error("❌ Error: Text input cannot be blank.")
             else:
-                st.session_state.input_data = text_input
-                st.session_state.max_word_limit = max_word_limit
+                word_count = len(text_input.split())
+                if word_count > max_word_limit:
+                    st.error(f"❌ Word count exceeds the maximum limit of {max_word_limit} words.")
+                else:
+                    st.session_state.input_data = text_input
+                    st.session_state.max_word_limit = max_word_limit
 
     elif input_type == "TXT File Upload":
         max_word_limit = 3000
@@ -60,8 +64,12 @@ def get_input():
                     if not file_contents.strip():
                         st.error("❌ Error: The uploaded file is empty.")
                     else:
-                        st.session_state.input_data = file_contents
-                        st.session_state.max_word_limit = max_word_limit
+                        word_count = len(text_input.split())
+                        if word_count > max_word_limit:
+                            st.error(f"❌ Word count exceeds the maximum limit of {max_word_limit} words.")
+                        else:
+                            st.session_state.input_data = file_contents
+                            st.session_state.max_word_limit = max_word_limit
                 except UnicodeDecodeError:
                     st.error("❌ Error: The uploaded file contains non-text data or is not in UTF-8 format.")
             else:
@@ -239,12 +247,9 @@ if page == "Tokenization 🔠":
     if "input_data" in st.session_state:
         tokenization_type = st.radio("**🧩 Choose tokenization type**", ["Word Tokenization", "Sentence Tokenization"])
         if st.button("🚀 Perform Tokenization"):
-            if len(word_tokenize(st.session_state.input_data)) > st.session_state.max_word_limit:
-                st.error(f"❌ Word count exceeds the maximum limit of {st.session_state.max_word_limit} words.")
-            else:
-                tokens = tokenize_text(st.session_state.input_data, tokenization_type)
-                st.subheader("🔍 Tokens:")
-                st.write(tokens)
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            st.subheader("🔍 Tokens:")
+            st.write(tokens)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
