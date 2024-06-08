@@ -19,9 +19,9 @@ from nltk import FreqDist
 import textstat
 
 # Set up Streamlit app
-st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="📚", layout="wide")
+st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="📊✍️", layout="wide")
 
-st.title("TextTrac: Navigate Text Data with AutoNLP")
+st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
 page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
