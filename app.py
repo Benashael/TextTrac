@@ -439,7 +439,7 @@ elif page == "Text Complexity Analysis 📊":
     if "input_data" in st.session_state:
         if st.button("🚀 Analyze Text Complexity"):
             st.subheader("📈 Text Complexity Analysis Results:")
-            complexity_metrics = analyze_text_complexity(st.session_state.input_data)
+            analyze_text_complexity(st.session_state.input_data)
             
             #for metric, value in complexity_metrics.items():
             #    st.write(f"**- {metric}: {value}**")
