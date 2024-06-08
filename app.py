@@ -197,8 +197,9 @@ def process_text_for_synonyms_antonyms(text):
     filtered_tokens = remove_stopwords(tokens)
     results = []
     for token in filtered_tokens:
-        synonyms, antonyms = find_synonyms_antonyms(token)
-        results.append((token, synonyms, antonyms))
+        if token not in word.isalnum():
+            synonyms, antonyms = find_synonyms_antonyms(token)
+            results.append((token, synonyms, antonyms))
     return results
 
 # Function to perform text complexity analysis
