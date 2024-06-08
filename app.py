@@ -23,7 +23,7 @@ st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_
 
 st.title("TextTrac: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "POS Tagging 🏷️", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
+page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -247,6 +247,39 @@ if page == "Tokenization 🔠":
         st.info("⚠️ Please provide text input or upload a file.")
 
 # Page 3
+elif page == "POS Tagging 🏷️":
+    st.header("POS Tagging 🏷️ Page")
+    tokenization_type = "Word Tokenization"
+
+    if "input_data" in st.session_state:
+        if st.button("🚀 Perform POS Tagging"):
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            pos_tags = pos_tagging(tokens)
+            pos_emoji_desc = {
+                'NN': ('📝', 'Noun'),
+                'NNS': ('📝', 'Nouns (plural)'),
+                'VB': ('🔧', 'Verb (base form)'),
+                'VBD': ('🔧', 'Verb (past tense)'),
+                'VBG': ('🔧', 'Verb (gerund/present participle)'),
+                'VBN': ('🔧', 'Verb (past participle)'),
+                'VBP': ('🔧', 'Verb (non-3rd person singular present)'),
+                'VBZ': ('🔧', 'Verb (3rd person singular present)'),
+                'JJ': ('✨', 'Adjective'),
+                'RB': ('🌀', 'Adverb'),
+                'IN': ('🔗', 'Preposition/subordinating conjunction'),
+                'DT': ('🔠', 'Determiner'),
+                'PRP': ('🙋', 'Personal pronoun'),
+                'PRP$': ('🙋', 'Possessive pronoun'),
+                'CC': ('🔗', 'Coordinating conjunction'),
+                'UH': ('😲', 'Interjection'),
+                'TO': ('➡️', 'to'),
+                'MD': ('🛠️', 'Modal')
+            }
+            pos_df = pd.DataFrame(pos_tags, columns=["Word", "POS Tag"])
+            st.subheader("🏷️ POS Tags:")
+            st.dataframe(pos_df)
+
+# Page 4
 elif page == "Stopwords Removal 🛑":
     st.header("Stopwords Removal 🛑 Page")
     tokenization_type = "Word Tokenization"
@@ -263,7 +296,7 @@ elif page == "Stopwords Removal 🛑":
     else:
         st.info("⚠️ Please provide text input or upload a file.")
 
-# Page 4
+# Page 5
 elif page == "Stemming 🌱":
     st.header("Stemming 🌱 Page")
     tokenization_type = "Word Tokenization"
@@ -281,7 +314,7 @@ elif page == "Stemming 🌱":
     else:
         st.info("⚠️ Please provide text input or upload a file.")  
 
-# Page 5
+# Page 6
 elif page == "Lemmatization 🌿":
     st.header("Lemmatization 🌿 Page")
     tokenization_type = "Word Tokenization"
