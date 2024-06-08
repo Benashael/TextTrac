@@ -437,8 +437,8 @@ elif page == "Text Similarity 🔄":
     st.header("🔄 Text Similarity Page")
     max_word_limit = 300
     st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
-    text1 = st.text_area("📝 Enter text 1:", key="text_input")
-    text2 = st.text_area("📝 Enter text 2:", key="text_input")
+    text1 = st.text_area("📝 Enter text 1:", key="text_input_1")
+    text2 = st.text_area("📝 Enter text 2:", key="text_input_2")
     if st.button("🔍 Find Text Similarity"):
         if not text1.strip() or not text2.strip():
             st.error("⚠️ Please provide both texts for similarity comparison.")
