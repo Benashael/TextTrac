@@ -194,8 +194,9 @@ def find_synonyms_antonyms(word):
 # Function to process the text and find synonyms and antonyms for each word
 def process_text_for_synonyms_antonyms(text):
     tokens = word_tokenize(text)
+    filtered_tokens = remove_stopwords(tokens)
     results = []
-    for token in tokens:
+    for token in filtered_tokens:
         synonyms, antonyms = find_synonyms_antonyms(token)
         results.append((token, synonyms, antonyms))
     return results
@@ -353,13 +354,10 @@ elif page == "Word Cloud ☁️":
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Page")
-    tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
         if st.button("🔍 Find Synonyms and Antonyms"):
-            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
-            filtered_tokens = remove_stopwords(tokens)
-            results = process_text_for_synonyms_antonyms(filtered_tokens)
+            results = process_text_for_synonyms_antonyms(st.session_state.input_data)
             results_df = pd.DataFrame(results, columns=["Word", "Synonyms", "Antonyms"])
             st.subheader("🔍 Synonyms and Antonyms:")
             st.dataframe(results_df)
