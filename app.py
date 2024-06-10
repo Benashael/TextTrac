@@ -17,15 +17,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk import FreqDist
 import textstat
-from transformers import pipeline
-classifier = pipeline('sentiment-analysis')
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Paraphrasing"])
+page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -464,27 +462,3 @@ elif page == "Text Complexity Analysis 📊":
                 st.write(f"Explanation: {data['Explanation']}")
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
-    
-elif page == "Paraphrasing":
-    st.title("Text Classification Page")
-    input_type = st.radio("Choose input type", ["Text Input", "TXT File Upload"])
-
-    if input_type == "Text Input":
-        text_input = st.text_area("Enter text:")
-        if st.button("Classify Text"):
-            # Perform text classification
-            classification = classifier(text_input)
-            st.subheader("Classification Result:")
-            st.write(classification)
-
-    elif input_type == "TXT File Upload":
-        uploaded_file = st.file_uploader("Upload a text file", type=["txt"])
-        if st.button("Classify Text"):
-            if uploaded_file is not None:
-                file_contents = uploaded_file.read().decode("utf-8")
-                # Perform text classification
-                classification = classifier(file_contents)
-                st.subheader("Classification Result:")
-                st.write(classification)
-            else:
-                st.info("Please upload a .txt file.")
