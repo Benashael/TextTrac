@@ -264,9 +264,27 @@ if page not in exclude_input_pages:
 
     st.info("⚠️ Click '🗑️ Clear Input' to reset the text input and file upload fields. This will clear all entered data and allow you to start fresh.")
 
+#Page 1
+if page == "Home Page 🏠":
+    st.subheader("Explore the power of text manipulation and analysis with cutting-edge tools and techniques.")
+    st.header("Navigate through the following features:")
+    st.markdown("""
+    - 🔠 **Tokenization:** Break down text into its individual components for deeper analysis.
+    - 🏷️ **POS Tagging:** Understand the grammatical structure of your text with part-of-speech tagging.
+    - 🛑 **Stopwords Removal:** Cleanse your text of common words to focus on the most meaningful content.
+    - 🌱 **Stemming:** Simplify words to their root form for streamlined analysis.
+    - 🌿 **Lemmatization:** Transform words to their base or dictionary form for accurate analysis.
+    - ☁️ **Word Cloud:** Visualize the most frequent words in your text with beautiful word clouds.
+    - 🔢 **N-Grams:** Explore sequences of words for deeper insights into your text's structure.
+    - 🔑 **Keyword Extraction:** Identify the most important terms in your text for efficient analysis.
+    - 🔤 **Synonym and Antonym Detection:** Discover alternative words and their opposites to enrich your text.
+    - 🔄 **Text Similarity:** Measure the likeness between texts to identify similarities and differences.
+    - 📊 **Text Complexity Analysis:** Assess the complexity of your text to tailor your analysis approach.
+    """)
+    st.write("Whether you're conducting sentiment analysis, extracting insights from customer feedback, or analyzing literary texts, TextTrac is your ultimate companion for navigating text data with AutoNLP. Start exploring now! 🚀📝")
 
 # Page 2
-if page == "Tokenization 🔠":
+elif page == "Tokenization 🔠":
     st.header("🔠 Tokenization Page")
     
     if "input_data" in st.session_state:
