@@ -267,6 +267,7 @@ if page not in exclude_input_pages:
 #Page 1
 if page == "Home Page 🏠":
     st.subheader("Explore the power of text manipulation and analysis with cutting-edge tools and techniques.")
+    st.markdown("___________")
     st.header("Navigate through the following features:")
     st.markdown("""
     - 🔠 **Tokenization:** Break down text into its individual components for deeper analysis.
@@ -281,8 +282,7 @@ if page == "Home Page 🏠":
     - 🔄 **Text Similarity:** Measure the likeness between texts to identify similarities and differences.
     - 📊 **Text Complexity Analysis:** Assess the complexity of your text to tailor your analysis approach.
     """)
-    st.write("Whether you're conducting sentiment analysis, extracting insights from customer feedback, or analyzing literary texts, TextTrac is your ultimate companion for navigating text data with AutoNLP. Start exploring now! 🚀📝")
-
+   
 # Page 2
 elif page == "Tokenization 🔠":
     st.header("🔠 Tokenization Page")
