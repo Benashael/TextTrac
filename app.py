@@ -18,7 +18,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from nltk import FreqDist
 import textstat
 from transformers import pipeline
-paraphraser = pipeline("text2text-generation", model="t5-small")
+classifier = pipeline('sentiment-analysis')
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac: Navigate Text Data with AutoNLP", page_icon="✍️", layout="wide")
@@ -466,26 +466,25 @@ elif page == "Text Complexity Analysis 📊":
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
     
 elif page == "Paraphrasing":
-
-    st.title("Paraphrasing Page")
+    st.title("Text Classification Page")
     input_type = st.radio("Choose input type", ["Text Input", "TXT File Upload"])
 
     if input_type == "Text Input":
         text_input = st.text_area("Enter text:")
-        if st.button("Paraphrase Text"):
-            # Perform paraphrasing
-            paraphrased_text = paraphraser(f"paraphrase: {text_input}")[0]['generated_text']
-            st.subheader("Paraphrased Text:")
-            st.write(paraphrased_text)
+        if st.button("Classify Text"):
+            # Perform text classification
+            classification = classifier(text_input)
+            st.subheader("Classification Result:")
+            st.write(classification)
 
     elif input_type == "TXT File Upload":
         uploaded_file = st.file_uploader("Upload a text file", type=["txt"])
-        if st.button("Paraphrase Text"):
+        if st.button("Classify Text"):
             if uploaded_file is not None:
                 file_contents = uploaded_file.read().decode("utf-8")
-                # Perform paraphrasing
-                paraphrased_text = paraphraser(f"paraphrase: {file_contents}")[0]['generated_text']
-                st.subheader("Paraphrased Text:")
-                st.write(paraphrased_text)
+                # Perform text classification
+                classification = classifier(file_contents)
+                st.subheader("Classification Result:")
+                st.write(classification)
             else:
                 st.info("Please upload a .txt file.")
