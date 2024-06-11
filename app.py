@@ -264,7 +264,7 @@ if page not in exclude_input_pages:
 
     st.info("⚠️ Click '🗑️ Clear Input' to reset the text input and file upload fields. This will clear all entered data and allow you to start fresh.")
 
-#Page 1
+# Page 1
 if page == "Home Page 🏠":
     st.subheader("Explore the power of text manipulation and analysis with cutting-edge tools and techniques.")
     st.markdown("___________")
