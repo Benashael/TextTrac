@@ -23,7 +23,7 @@ st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Page**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -285,7 +285,7 @@ if page == "Home Page 🏠":
    
 # Page 2
 elif page == "Tokenization 🔠":
-    st.header("🔠 Tokenization Page")
+    st.header("🔠 Tokenization Feature")
     
     if "input_data" in st.session_state:
         tokenization_type = st.radio("**🧩 Choose tokenization type**", ["Word Tokenization", "Sentence Tokenization"])
@@ -298,7 +298,7 @@ elif page == "Tokenization 🔠":
 
 # Page 3
 elif page == "POS Tagging 🏷️":
-    st.header("🏷️ POS Tagging Page")
+    st.header("🏷️ POS Tagging Feature")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -335,7 +335,7 @@ elif page == "POS Tagging 🏷️":
 
 # Page 4
 elif page == "Stopwords Removal 🛑":
-    st.header("🛑 Stopwords Removal Page")
+    st.header("🛑 Stopwords Removal Feature")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -352,7 +352,7 @@ elif page == "Stopwords Removal 🛑":
 
 # Page 5
 elif page == "Stemming 🌱":
-    st.header("🌱 Stemming Page")
+    st.header("🌱 Stemming Feature")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -370,7 +370,7 @@ elif page == "Stemming 🌱":
 
 # Page 6
 elif page == "Lemmatization 🌿":
-    st.header("🌿 Lemmatization Page")
+    st.header("🌿 Lemmatization Feature")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -388,7 +388,7 @@ elif page == "Lemmatization 🌿":
 
 # Page 7
 elif page == "Word Cloud ☁️":
-    st.header("☁️ Word Cloud Page")
+    st.header("☁️ Word Cloud Feature")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -402,7 +402,7 @@ elif page == "Word Cloud ☁️":
 
 # Page 8
 elif page == "N-Grams 🔢":
-    st.header("🔢 N-Grams Page")
+    st.header("🔢 N-Grams Feature")
     tokenization_type = "Word Tokenization"
 
     if "input_data" in st.session_state:
@@ -429,7 +429,7 @@ elif page == "N-Grams 🔢":
 
 # Page 9
 elif page == "Keyword Extraction 🔑":
-    st.header("🔑 Keyword Extraction Page")
+    st.header("🔑 Keyword Extraction Feature")
 
     if "input_data" in st.session_state:
         if st.button("🔍 Extract Keywords"):
@@ -439,7 +439,7 @@ elif page == "Keyword Extraction 🔑":
 
 # Page 10
 elif page == "Synonym and Antonym Detection 🔤":
-    st.header("🔤 Synonym and Antonym Detection Page")
+    st.header("🔤 Synonym and Antonym Detection Feature")
 
     if "input_data" in st.session_state:
         if st.button("🔍 Find Synonyms and Antonyms"):
@@ -452,7 +452,7 @@ elif page == "Synonym and Antonym Detection 🔤":
 
 # Page 11
 elif page == "Text Similarity 🔄":
-    st.header("🔄 Text Similarity Page")
+    st.header("🔄 Text Similarity Feature")
     max_word_limit = 300
     st.write(f"⚠️ Maximum Word Limit: {max_word_limit} words")
     text1 = st.text_area("📝 Enter text 1:", key="text_input_1")
@@ -469,7 +469,7 @@ elif page == "Text Similarity 🔄":
 
 # Page 12
 elif page == "Text Complexity Analysis 📊":
-    st.header("📊 Text Complexity Analysis Page")
+    st.header("📊 Text Complexity Analysis Feature")
 
     if "input_data" in st.session_state:
         if st.button("🚀 Analyze Text Complexity"):
