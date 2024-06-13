@@ -270,27 +270,27 @@ if page == "Home Page 🏠":
     st.markdown("___________")
     st.header("Navigate through the following features:")
     st.markdown("""
-    ✨ 🔠 **Tokenization:** Break down text into its individual components for deeper analysis.
+    ✨ **Tokenization 🔠:** Break down text into its individual components for deeper analysis.
     
-    ✨ 🏷️ **POS Tagging:** Understand the grammatical structure of your text with part-of-speech tagging.
+    ✨ **POS Tagging 🏷️:** Understand the grammatical structure of your text with part-of-speech tagging.
     
-    ✨ 🛑 **Stopwords Removal:** Cleanse your text of common words to focus on the most meaningful content.
+    ✨ **Stopwords Removal 🛑:** Cleanse your text of common words to focus on the most meaningful content.
     
-    ✨ 🌱 **Stemming:** Simplify words to their root form for streamlined analysis.
+    ✨ **Stemming 🌱:** Simplify words to their root form for streamlined analysis.
     
-    ✨ 🌿 **Lemmatization:** Transform words to their base or dictionary form for accurate analysis.
+    ✨ **Lemmatization 🌿:** Transform words to their base or dictionary form for accurate analysis.
     
-    ✨ ☁️ **Word Cloud:** Visualize the most frequent words in your text with beautiful word clouds.
+    ✨ **Word Cloud ☁️:** Visualize the most frequent words in your text with beautiful word clouds.
     
-    ✨ 🔢 **N-Grams:** Explore sequences of words for deeper insights into your text's structure.
+    ✨ **N-Grams 🔢:** Explore sequences of words for deeper insights into your text's structure.
     
-    ✨ 🔑 **Keyword Extraction:** Identify the most important terms in your text for efficient analysis.
+    ✨ **Keyword Extraction 🔑:** Identify the most important terms in your text for efficient analysis.
     
-    ✨ 🔤 **Synonym and Antonym Detection:** Discover alternative words and their opposites to enrich your text.
+    ✨ **Synonym and Antonym Detection 🔤:** Discover alternative words and their opposites to enrich your text.
     
-    ✨ 🔄 **Text Similarity:** Measure the likeness between texts to identify similarities and differences.
+    ✨ **Text Similarity 🔄:** Measure the likeness between texts to identify similarities and differences.
     
-    ✨ 📊 **Text Complexity Analysis:** Assess the complexity of your text to tailor your analysis approach.
+    ✨ **Text Complexity Analysis 📊:** Assess the complexity of your text to tailor your analysis approach.
     """)
    
 # Page 2
