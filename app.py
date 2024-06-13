@@ -23,7 +23,7 @@ st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -249,6 +249,30 @@ def analyze_text_complexity(text):
             "Explanation": "Indicates the U.S. grade level for which the text is most suitable."
         }
     }
+
+# Function to perform text normalization
+def normalize_text(text):
+    # Lowercase text
+    text = text.lower()
+    
+    # Expand contractions
+    text = contractions.fix(text)
+    
+    # Remove punctuation
+    text = re.sub(r'[^\w\s]', '', text)
+    # Remove stopwords
+    stop_words = set(stopwords.words('english'))
+    tokens = word_tokenize(text)
+    tokens = [word for word in tokens if word not in stop_words]
+    
+    # Lemmatization
+    tokens = [lemmatizer.lemmatize(word) for word in tokens]
+    
+    # Remove extra whitespace
+    text = ' '.join(tokens)
+    text = re.sub(r'\s+', ' ', text).strip()
+    
+    return text
 
 # List of pages to exclude the common input section
 exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄", "Paraphrasing"]
