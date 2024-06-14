@@ -19,6 +19,7 @@ from nltk import FreqDist
 import textstat
 import re
 import contractions
+import base64
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
