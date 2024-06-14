@@ -501,7 +501,13 @@ elif page == "N-Grams 🔢":
             n_grams = create_ngrams(filtered_tokens, n)
             n_grams_text = generate_ngrams_text(n_grams)    
             st.subheader(f"🚫 {n}-Grams (Without Stopwords):")
-            st.write(n_grams_text) 
+            st.write(n_grams_text)
+            normalized_text = normalize_text(st.session_state.input_data)
+            normalized_tokens = tokenize_text(normalized_text)
+            n_grams = create_ngrams(normalized_tokens, n)
+            n_grams_text = generate_ngrams_text(n_grams) 
+            st.subheader(f"🧹 {n}-Grams (Normalized Text):")
+            st.write(n_grams_text)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
@@ -514,6 +520,9 @@ elif page == "Keyword Extraction 🔑":
             extract_keywords(st.session_state.input_data)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
+
+# Page 11
+
 
 # Page 12
 elif page == "Synonym and Antonym Detection 🔤":
