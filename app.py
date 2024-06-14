@@ -291,6 +291,15 @@ def count_sentences(text):
     sentences = sent_tokenize(text)
     return len(sentences)
 
+# Topic modeling function
+def topic_modeling(text, num_topics=5, num_words=10):
+    tokens = word_tokenize(text)
+    dictionary = corpora.Dictionary([tokens])
+    corpus = [dictionary.doc2bow(tokens)]
+    lda_model = LdaModel(corpus, num_topics=num_topics, id2word=dictionary, passes=15)
+    topics = lda_model.print_topics(num_words=num_words)
+    return topics
+
 def download_button(text, filename):
     b64 = base64.b64encode(text.encode()).decode()
     href = f'<a href="data:file/txt;base64,{b64}" download="{filename}">⬇️ Download Normalized Text</a>'
@@ -522,7 +531,19 @@ elif page == "Keyword Extraction 🔑":
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 11
+elif page == "Topic Modeling 🗂️":
+    st.header("🗂️ Topic Modeling Feature")
 
+    if "input_data" in st.session_state:
+        num_topics = st.number_input("Number of Topics:", min_value=1, max_value=10, value=5)
+        num_words = st.number_input("Number of Words per Topic:", min_value=1, max_value=20, value=10)
+        if st.button("🗣️ Perform Topic Modeling"):
+            topics = topic_modeling(st.session_state.input_data, num_topics=num_topics, num_words=num_words)
+            st.subheader("🎓 Topics:")
+            for i, topic in enumerate(topics):
+                st.write(f"Topic {i+1}: {topic}")
+    else:
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 12
 elif page == "Synonym and Antonym Detection 🔤":
