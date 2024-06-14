@@ -575,8 +575,8 @@ elif page == "Word Cloud ☁️":
 
     if "input_data" in st.session_state:
         if st.button("⚙️ Generate Word Cloud"):
-            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
-            filtered_tokens = remove_stopwords(tokens)
+            normalized_text = normalize_text(st.session_state.input_data)
+            normalized_tokens = tokenize_text(normalized_text, tokenization_type)
             st.subheader("☁️ Word Cloud:")
             generate_word_cloud(filtered_tokens)
     else:
