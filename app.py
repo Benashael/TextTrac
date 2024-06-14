@@ -23,7 +23,7 @@ st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Tokenization 🔠", "POS Tagging 🏷️", "Stopwords Removal 🛑", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "Word Cloud ☁️", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Character and Word Count 📏", "Text Normalization 🧮", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -275,7 +275,7 @@ def normalize_text(text):
     return text
 
 # List of pages to exclude the common input section
-exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄", "Paraphrasing"]
+exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄"]
 
 if page not in exclude_input_pages:
     # Common input section for pages not in the exclude list
@@ -294,17 +294,19 @@ if page == "Home Page 🏠":
     st.markdown("___________")
     st.header("Navigate through the following features:")
     st.markdown("""
+    ✨ **Character and Word Count 📏:** Calculate the number of characters and words in the text, often an initial step for basic text statistics.
+    
+    ✨ **Text Normalization 🧮:** Preprocess the text to ensure consistency (e.g., lowercasing, removing punctuation).
+    
     ✨ **Tokenization 🔠:** Break down text into its individual components for deeper analysis.
+
+    ✨ **Stopwords Removal 🛑:** Cleanse your text of common words to focus on the most meaningful content.
     
     ✨ **POS Tagging 🏷️:** Understand the grammatical structure of your text with part-of-speech tagging.
-    
-    ✨ **Stopwords Removal 🛑:** Cleanse your text of common words to focus on the most meaningful content.
     
     ✨ **Stemming 🌱:** Simplify words to their root form for streamlined analysis.
     
     ✨ **Lemmatization 🌿:** Transform words to their base or dictionary form for accurate analysis.
-    
-    ✨ **Word Cloud ☁️:** Visualize the most frequent words in your text with beautiful word clouds.
     
     ✨ **N-Grams 🔢:** Explore sequences of words for deeper insights into your text's structure.
     
@@ -315,6 +317,8 @@ if page == "Home Page 🏠":
     ✨ **Text Similarity 🔄:** Measure the likeness between texts to identify similarities and differences.
     
     ✨ **Text Complexity Analysis 📊:** Assess the complexity of your text to tailor your analysis approach.
+
+    ✨ **Word Cloud ☁️:** Visualize the most frequent words in your text with beautiful word clouds.
     """)
    
 # Page 2
