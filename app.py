@@ -20,6 +20,8 @@ import textstat
 import re
 import contractions
 import base64
+from gensim import corpora
+from gensim.models.ldamodel import LdaModel
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
@@ -596,9 +598,15 @@ elif page == "Word Cloud ☁️":
 
     if "input_data" in st.session_state:
         if st.button("⚙️ Generate Word Cloud"):
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            st.subheader("🛑☁️ Word Cloud (With Stopwords):")
+            generate_word_cloud(tokens)
+            filtered_tokens = remove_stopwords(tokens)
+            st.subheader("🚫☁️ Word Cloud (Without Stopwords):")
+            generate_word_cloud(filtered_tokens)
             normalized_text = normalize_text(st.session_state.input_data)
             normalized_tokens = tokenize_text(normalized_text, tokenization_type)
-            st.subheader("☁️ Word Cloud:")
+            st.subheader("🧹☁️ Word Cloud (Normalized Text:")
             generate_word_cloud(normalized_tokens)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
