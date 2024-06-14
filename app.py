@@ -336,9 +336,9 @@ elif page == "Character and Word Count 📏":
     if "input_data" in st.session_state:
         char_count = count_characters(st.session_state.input_data)
         st.subheader("📏 Character Count:")
-        st.write(char_count)
+        st.subheader(char_count)
         word_count = count_words(st.session_state.input_data)
-        st.subheader("🧮 Word Count:")
+        st.subheader("🧮 Word Count:", word_count)
         st.write(word_count)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
