@@ -25,7 +25,7 @@ st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Text Normalization 🧮", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -290,6 +290,11 @@ def count_sentences(text):
     sentences = sent_tokenize(text)
     return len(sentences)
 
+def download_button(text, filename):
+    b64 = base64.b64encode(text.encode()).decode()
+    href = f'<a href="data:file/txt;base64,{b64}" download="{filename}">⬇️ Download Normalized Text</a>'
+    st.markdown(href, unsafe_allow_html=True)
+
 # List of pages to exclude the common input section
 exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄"]
 
@@ -364,6 +369,7 @@ elif page == "Text Normalization 🧮":
             normalized_text = normalize_text(st.session_state.input_data)
             st.subheader("🔍 Normalized Text:")
             st.write(normalized_text)
+            download_button(normalized_text, "normalized_text.txt")
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
