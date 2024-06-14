@@ -503,7 +503,7 @@ elif page == "N-Grams 🔢":
             st.subheader(f"🚫 {n}-Grams (Without Stopwords):")
             st.write(n_grams_text)
             normalized_text = normalize_text(st.session_state.input_data)
-            normalized_tokens = tokenize_text(normalized_text)
+            normalized_tokens = tokenize_text(normalized_text, tokenization_type)
             n_grams = create_ngrams(normalized_tokens, n)
             n_grams_text = generate_ngrams_text(n_grams) 
             st.subheader(f"🧹 {n}-Grams (Normalized Text):")
