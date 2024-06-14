@@ -268,7 +268,7 @@ def normalize_text(text):
     tokens = [word for word in tokens if word not in stop_words]
     
     # Lemmatization
-    tokens = [lemmatizer.lemmatize(word) for word in tokens]
+    tokens = [perform_lemmatization(word) for word in tokens]
     
     # Remove extra whitespace
     text = ' '.join(tokens)
