@@ -274,6 +274,14 @@ def normalize_text(text):
     
     return text
 
+# Character Count Function
+def count_characters(text):
+    return len(text)
+
+# Word Count Function
+def count_words(text):
+    return len(text.split())
+
 # List of pages to exclude the common input section
 exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄"]
 
