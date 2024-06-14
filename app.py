@@ -282,6 +282,11 @@ def count_characters(text):
 def count_words(text):
     return len(text.split())
 
+# Sentence Splitting Function
+def count_sentences(text):
+    sentences = sent_tokenize(text)
+    return len(sentences)
+
 # List of pages to exclude the common input section
 exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄"]
 
@@ -330,16 +335,20 @@ if page == "Home Page 🏠":
     """)
    
 # Page 2
-elif page == "Character and Word Count 📏":
-    st.header("📏 Character and Word Count Feature")
+elif page == "Text Statistics 📊":
+    st.header("📊 Text Statistics Feature")
 
     if "input_data" in st.session_state:
-        char_count = count_characters(st.session_state.input_data)
-        st.subheader("📏 Character Count:")
-        st.subheader(char_count)
-        word_count = count_words(st.session_state.input_data)
-        st.subheader("🧮 Word Count:", word_count)
-        st.write(word_count)
+        if st.button("👀 Show Statistics")
+            char_count = count_characters(st.session_state.input_data)
+            st.subheader("📏 Character Count:")
+            st.write(char_count)
+            word_count = count_words(st.session_state.input_data)
+            st.subheader("🧮 Word Count:")
+            st.write(word_count)
+            sent_count = count_sentences(st.session_state.input_data)
+            st.subheader("🗒️ Word Count:")
+            st.write(sent_count)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
