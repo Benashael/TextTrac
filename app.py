@@ -369,7 +369,7 @@ elif page == "Text Normalization 🧮":
         if st.button("🔍 Normalize Text"):
             normalized_text = normalize_text(st.session_state.input_data)
             st.subheader("🔍 Normalized Text:")
-            st.write(normalized_text)
+            st.markdown(f'<div style="background-color:#F0F0F0; padding:10px; border-radius:5px">{normalized_text}</div>', unsafe_allow_html=True)
             download_button(normalized_text, "normalized_text.txt")
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
