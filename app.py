@@ -26,7 +26,7 @@ st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "N-Grams 🔢", "Keyword Extraction 🔑", "Topic Modeling 🗂️", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -362,20 +362,6 @@ elif page == "Text Statistics 📊":
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 3
-elif page == "Text Normalization 🧮":
-    st.title("🧮 Text Normalization Feature")
-
-    if "input_data" in st.session_state:
-        if st.button("🔍 Normalize Text"):
-            normalized_text = normalize_text(st.session_state.input_data)
-            st.subheader("🔍 Normalized Text:")
-            st.markdown(f'<div style="background-color:#444444; color:white; padding:10px; border-radius:5px">{normalized_text}</div>', unsafe_allow_html=True)
-            st.write("")
-            download_button(normalized_text, "normalized_text.txt")
-    else:
-        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
-
-# Page 2
 elif page == "Tokenization 🔠":
     st.header("🔠 Tokenization Feature")
     
@@ -388,7 +374,7 @@ elif page == "Tokenization 🔠":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 3
+# Page 4
 elif page == "POS Tagging 🏷️":
     st.header("🏷️ POS Tagging Feature")
     tokenization_type = "Word Tokenization"
@@ -425,7 +411,7 @@ elif page == "POS Tagging 🏷️":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 4
+# Page 5
 elif page == "Stopwords Removal 🛑":
     st.header("🛑 Stopwords Removal Feature")
     tokenization_type = "Word Tokenization"
@@ -442,7 +428,7 @@ elif page == "Stopwords Removal 🛑":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 5
+# Page 6
 elif page == "Stemming 🌱":
     st.header("🌱 Stemming Feature")
     tokenization_type = "Word Tokenization"
@@ -460,7 +446,7 @@ elif page == "Stemming 🌱":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")  
 
-# Page 6
+# Page 7
 elif page == "Lemmatization 🌿":
     st.header("🌿 Lemmatization Feature")
     tokenization_type = "Word Tokenization"
@@ -478,21 +464,21 @@ elif page == "Lemmatization 🌿":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")  
 
-# Page 7
-elif page == "Word Cloud ☁️":
-    st.header("☁️ Word Cloud Feature")
-    tokenization_type = "Word Tokenization"
+# Page 8
+elif page == "Text Normalization 🧮":
+    st.title("🧮 Text Normalization Feature")
 
     if "input_data" in st.session_state:
-        if st.button("⚙️ Generate Word Cloud"):
-            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
-            filtered_tokens = remove_stopwords(tokens)
-            st.subheader("☁️ Word Cloud:")
-            generate_word_cloud(filtered_tokens)
+        if st.button("🔍 Normalize Text"):
+            normalized_text = normalize_text(st.session_state.input_data)
+            st.subheader("🔍 Normalized Text:")
+            st.markdown(f'<div style="background-color:#444444; color:white; padding:10px; border-radius:5px">{normalized_text}</div>', unsafe_allow_html=True)
+            st.write("")
+            download_button(normalized_text, "normalized_text.txt")
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 8
+# Page 9
 elif page == "N-Grams 🔢":
     st.header("🔢 N-Grams Feature")
     tokenization_type = "Word Tokenization"
@@ -519,7 +505,7 @@ elif page == "N-Grams 🔢":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 9
+# Page 10
 elif page == "Keyword Extraction 🔑":
     st.header("🔑 Keyword Extraction Feature")
 
@@ -529,7 +515,7 @@ elif page == "Keyword Extraction 🔑":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 10
+# Page 12
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Feature")
 
@@ -542,7 +528,7 @@ elif page == "Synonym and Antonym Detection 🔤":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 11
+# Page 13
 elif page == "Text Similarity 🔄":
     st.header("🔄 Text Similarity Feature")
     max_word_limit = 300
@@ -559,7 +545,7 @@ elif page == "Text Similarity 🔄":
             st.subheader("🔄 Similarity Score:")
             st.write(f"**The cosine similarity between the two texts is:** {similarity_score:.2f}")
 
-# Page 12
+# Page 14
 elif page == "Text Complexity Analysis 📊":
     st.header("📊 Text Complexity Analysis Feature")
 
@@ -570,5 +556,19 @@ elif page == "Text Complexity Analysis 📊":
             for metric, data in complexity_results.items():
                 st.write(f"{metric}: {data['Score']}")
                 st.write(f"Explanation: {data['Explanation']}")
+    else:
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
+
+# Page 15
+elif page == "Word Cloud ☁️":
+    st.header("☁️ Word Cloud Feature")
+    tokenization_type = "Word Tokenization"
+
+    if "input_data" in st.session_state:
+        if st.button("⚙️ Generate Word Cloud"):
+            tokens = tokenize_text(st.session_state.input_data, tokenization_type)
+            filtered_tokens = remove_stopwords(tokens)
+            st.subheader("☁️ Word Cloud:")
+            generate_word_cloud(filtered_tokens)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
