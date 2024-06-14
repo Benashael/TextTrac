@@ -352,6 +352,18 @@ elif page == "Text Statistics 📊":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
+# Page 3
+elif page == "Text Normalization 🧮":
+    st.title("🧮 Text Normalization Feature")
+
+    if "text_input" in st.session_state:
+        if st.button("🔍 Normalize Text"):
+            normalized_text = normalize_text(st.session_state.text_input)
+            st.subheader("🔍 Normalized Text:")
+            st.write(normalized_text)
+    else:
+        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
+
 # Page 2
 elif page == "Tokenization 🔠":
     st.header("🔠 Tokenization Feature")
