@@ -356,9 +356,9 @@ elif page == "Text Statistics 📊":
 elif page == "Text Normalization 🧮":
     st.title("🧮 Text Normalization Feature")
 
-    if "text_input" in st.session_state:
+    if "input_data" in st.session_state:
         if st.button("🔍 Normalize Text"):
-            normalized_text = normalize_text(st.session_state.text_input)
+            normalized_text = normalize_text(st.session_state.input_data)
             st.subheader("🔍 Normalized Text:")
             st.write(normalized_text)
     else:
