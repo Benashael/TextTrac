@@ -23,7 +23,7 @@ st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Character and Word Count 📏", "Text Normalization 🧮", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Text Normalization 🧮", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -307,7 +307,7 @@ if page == "Home Page 🏠":
     st.markdown("___________")
     st.header("Navigate through the following features:")
     st.markdown("""
-    ✨ **Character and Word Count 📏:** Calculate the number of characters and words in the text, often an initial step for basic text statistics.
+    ✨ **Text Statistics 📊:** Calculate the number of characters, words, and sentences in the text, often an initial step for basic text statistics.
     
     ✨ **Text Normalization 🧮:** Preprocess the text to ensure consistency (e.g., lowercasing, removing punctuation).
     
