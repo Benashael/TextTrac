@@ -307,7 +307,7 @@ if page == "Home Page 🏠":
     st.markdown("___________")
     st.header("Navigate through the following features:")
     st.markdown("""
-    ✨ **Text Statistics 📊:** Calculate the number of characters, words, and sentences in the text, often an initial step for basic text statistics.
+    ✨ **Text Statistics 📊:** Calculate the number of characters, words, and sentences in the text.
     
     ✨ **Text Normalization 🧮:** Preprocess the text to ensure consistency (e.g., lowercasing, removing punctuation).
     
