@@ -580,7 +580,7 @@ elif page == "Word Cloud ☁️":
             generate_word_cloud(filtered_tokens)
             normalized_text = normalize_text(st.session_state.input_data)
             normalized_tokens = tokenize_text(normalized_text, tokenization_type)
-            st.subheader("🧹☁️ Word Cloud (Normalized Text:")
+            st.subheader("🧹☁️ Word Cloud (Normalized Text):")
             generate_word_cloud(normalized_tokens)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
