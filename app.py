@@ -294,12 +294,23 @@ def count_sentences(text):
     return len(sentences)
 
 # Topic modeling function
-def topic_modeling(text, num_topics=5, num_words=10):
-    tokens = word_tokenize(text)
-    dictionary = corpora.Dictionary([tokens])
-    corpus = [dictionary.doc2bow(tokens)]
-    lda_model = LdaModel(corpus, num_topics=num_topics, id2word=dictionary, passes=15)
-    topics = lda_model.print_topics(num_words=num_words)
+def topic_modeling(text_data, num_topics=5, num_words=10):
+    # Vectorize the text data
+    vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
+    X = vectorizer.fit_transform(text_data)
+
+    # Fit the LDA model
+    lda = LatentDirichletAllocation(n_components=num_topics, random_state=0)
+    lda.fit(X)
+
+    # Get the top words for each topic
+    feature_names = vectorizer.get_feature_names_out()
+    topics = []
+    for topic_idx, topic in enumerate(lda.components_):
+        top_words_idx = topic.argsort()[:-num_words - 1:-1]
+        topic_words = [feature_names[i] for i in top_words_idx]
+        topics.append(", ".join(topic_words))
+    
     return topics
 
 def download_button(text, filename):
