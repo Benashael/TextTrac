@@ -20,15 +20,13 @@ import textstat
 import re
 import contractions
 import base64
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import LatentDirichletAllocation
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "N-Grams 🔢", "Keyword Extraction 🔑", "Topic Modeling 🗂️", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -293,26 +291,6 @@ def count_sentences(text):
     sentences = sent_tokenize(text)
     return len(sentences)
 
-# Topic modeling function
-def topic_modeling(text_data, num_topics, num_words):
-    # Vectorize the text data
-    vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
-    X = vectorizer.fit_transform(text_data)
-
-    # Fit the LDA model
-    lda = LatentDirichletAllocation(n_components=num_topics, random_state=0)
-    lda.fit(X)
-
-    # Get the top words for each topic
-    feature_names = vectorizer.get_feature_names_out()
-    topics = []
-    for topic_idx, topic in enumerate(lda.components_):
-        top_words_idx = topic.argsort()[:-num_words - 1:-1]
-        topic_words = [feature_names[i] for i in top_words_idx]
-        topics.append(", ".join(topic_words))
-    
-    return topics
-
 def download_button(text, filename):
     b64 = base64.b64encode(text.encode()).decode()
     href = f'<a href="data:file/txt;base64,{b64}" download="{filename}">⬇️ Download Normalized Text</a>'
@@ -544,21 +522,6 @@ elif page == "Keyword Extraction 🔑":
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
 # Page 11
-elif page == "Topic Modeling 🗂️":
-    st.header("🗂️ Topic Modeling Feature")
-
-    if "input_data" in st.session_state:
-        num_topics = st.number_input("Number of Topics:", min_value=1, max_value=10, value=5)
-        num_words = st.number_input("Number of Words per Topic:", min_value=1, max_value=20, value=10)
-        if st.button("🗣️ Perform Topic Modeling"):
-            topics = topic_modeling(st.session_state.input_data, num_topics=num_topics, num_words=num_words)
-            st.subheader("🎓 Topics:")
-            for i, topic in enumerate(topics):
-                st.write(f"Topic {i+1}: {topic}")
-    else:
-        st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
-
-# Page 12
 elif page == "Synonym and Antonym Detection 🔤":
     st.header("🔤 Synonym and Antonym Detection Feature")
 
@@ -571,7 +534,7 @@ elif page == "Synonym and Antonym Detection 🔤":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 13
+# Page 12
 elif page == "Text Similarity 🔄":
     st.header("🔄 Text Similarity Feature")
     max_word_limit = 300
@@ -588,7 +551,7 @@ elif page == "Text Similarity 🔄":
             st.subheader("🔄 Similarity Score:")
             st.write(f"**The cosine similarity between the two texts is:** {similarity_score:.2f}")
 
-# Page 14
+# Page 13
 elif page == "Text Complexity Analysis 📊":
     st.header("📊 Text Complexity Analysis Feature")
 
@@ -602,7 +565,7 @@ elif page == "Text Complexity Analysis 📊":
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
 
-# Page 15
+# Page 14
 elif page == "Word Cloud ☁️":
     st.header("☁️ Word Cloud Feature")
     tokenization_type = "Word Tokenization"
