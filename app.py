@@ -20,8 +20,8 @@ import textstat
 import re
 import contractions
 import base64
-from gensim import corpora
-from gensim.models.ldamodel import LdaModel
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import LatentDirichletAllocation
 
 # Set up Streamlit app
 st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
