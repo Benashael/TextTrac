@@ -356,7 +356,7 @@ elif page == "Text Statistics 📊":
             st.subheader("🧮 Word Count:")
             st.write(word_count)
             sent_count = count_sentences(st.session_state.input_data)
-            st.subheader("🗒️ Word Count:")
+            st.subheader("🗒️ Sentence Count:")
             st.write(sent_count)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
