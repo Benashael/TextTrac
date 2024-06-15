@@ -318,8 +318,6 @@ if page == "Home Page 🏠":
     st.markdown("""
     ✨ **Text Statistics 📊:** Calculate the number of characters, words, and sentences in the text.
     
-    ✨ **Text Normalization 🧮:** Preprocess the text to ensure consistency (e.g., lowercasing, removing punctuation).
-    
     ✨ **Tokenization 🔠:** Break down text into its individual components for deeper analysis.
 
     ✨ **Stopwords Removal 🛑:** Cleanse your text of common words to focus on the most meaningful content.
@@ -329,6 +327,8 @@ if page == "Home Page 🏠":
     ✨ **Stemming 🌱:** Simplify words to their root form for streamlined analysis.
     
     ✨ **Lemmatization 🌿:** Transform words to their base or dictionary form for accurate analysis.
+
+    ✨ **Text Normalization 🧮:** Preprocess the text to ensure consistency (e.g., lowercasing, removing punctuation).
     
     ✨ **N-Grams 🔢:** Explore sequences of words for deeper insights into your text's structure.
     
