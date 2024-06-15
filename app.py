@@ -294,7 +294,7 @@ def count_sentences(text):
     return len(sentences)
 
 # Topic modeling function
-def topic_modeling(text_data, num_topics=5, num_words=10):
+def topic_modeling(text_data, num_topics, num_words):
     # Vectorize the text data
     vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
     X = vectorizer.fit_transform(text_data)
