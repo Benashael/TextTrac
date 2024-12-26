@@ -308,7 +308,6 @@ if page not in exclude_input_pages:
     # Add a button to clear the session state
     if st.button("🗑️ Clear Input"):
         clear_session_state()
-        st.experimental_rerun()
 
     st.info("⚠️ Click '🗑️ Clear Input' to reset the text input and file upload fields. This will clear all entered data and allow you to start fresh.")
 
