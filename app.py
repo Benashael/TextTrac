@@ -348,7 +348,7 @@ if page == "Home Page 🏠":
 elif page == "Text Statistics 📊":
     st.header("📊 Text Statistics Feature")
 
-    if "input_data" in st.session_state and st.session_state.input_type is not None:
+    if "input_data" in st.session_state:
         if st.button("👀 Show Statistics"):
             char_count = count_characters(st.session_state.input_data)
             st.subheader("📏 Character Count:")
