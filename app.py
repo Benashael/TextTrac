@@ -299,7 +299,7 @@ def download_button(text, filename):
     st.markdown(href, unsafe_allow_html=True)
 
 # List of pages to exclude the common input section
-exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄"]
+exclude_input_pages = ["Home Page 🏠", "Text Similarity 🔄", "Quick Links 🔗"]
 
 if page not in exclude_input_pages:
     # Common input section for pages not in the exclude list
