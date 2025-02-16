@@ -590,7 +590,7 @@ elif page == "Quick Links 🔗":
     st.header("🔗 Quick Links")
     st.write("Click on any link below to navigate to the respective application:")
 
-     links = {
+    links = {
         "Model Craft": "https://modelcraft-uihxqxgjthmusarv6kscuz.streamlit.app/",
         "Vision Wizard": "https://vision-wizard-durnsdepglthkhzx2peekt.streamlit.app/",
         "Data Weaver": "https://aybzbegfeczo4yfievejqk.streamlit.app/",
