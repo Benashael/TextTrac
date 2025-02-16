@@ -599,7 +599,4 @@ elif page == "Quick Links 🔗":
     }
     
     for name, url in links.items():
-        if st.button(name):
-            st.write(f"Redirecting to [{name}]({url})...")
-            js = f"window.open('{url}', '_blank')"  # Open in a new tab
-            st.markdown(f'<script>{js}</script>', unsafe_allow_html=True)
+        st.link_button(name, url, use_container_width=True)
