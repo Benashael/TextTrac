@@ -591,11 +591,11 @@ elif page == "Quick Links 🔗":
     st.write("Click on any link below to navigate to the respective application:")
 
     links = {
-        "Model Craft": "https://modelcraft-uihxqxgjthmusarv6kscuz.streamlit.app/",
-        "Vision Wizard": "https://vision-wizard-durnsdepglthkhzx2peekt.streamlit.app/",
-        "Data Weaver": "https://aybzbegfeczo4yfievejqk.streamlit.app/",
-        "SkillSync": "https://skillsync-b8xdmwmdezbzf66qpbuj5j.streamlit.app/",
-        "TradeLens": "https://glseycvc2rbucwhk3esh85.streamlit.app/"
+        "🤖 Model Craft": "https://modelcraft-uihxqxgjthmusarv6kscuz.streamlit.app/",
+        "🧙‍♂️ Vision Wizard": "https://vision-wizard-durnsdepglthkhzx2peekt.streamlit.app/",
+        "📂 Data Weaver": "https://aybzbegfeczo4yfievejqk.streamlit.app/",
+        "🛠️ SkillSync": "https://skillsync-b8xdmwmdezbzf66qpbuj5j.streamlit.app/",
+        "💰 TradeLens": "https://glseycvc2rbucwhk3esh85.streamlit.app/"
     }
     
     for name, url in links.items():
