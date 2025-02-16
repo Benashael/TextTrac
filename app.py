@@ -601,5 +601,4 @@ elif page == "Quick Links 🔗":
     for name, url in links.items():
         if st.button(name):
             st.write(f"Redirecting to [{name}]({url})...")
-            st.experimental_rerun()
             st.markdown(f'<meta http-equiv="refresh" content="0; url={url}">', unsafe_allow_html=True)
