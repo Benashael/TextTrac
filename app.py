@@ -28,7 +28,7 @@ st.set_page_config(page_title="TextTrac", page_icon="✍️", layout="wide")
 
 st.title("TextTrac 📊✍️: Navigate Text Data with AutoNLP")
 
-page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️"])
+page = st.sidebar.radio("**🌐 Select a Feature**", ["Home Page 🏠", "Text Statistics 📊", "Tokenization 🔠", "Stopwords Removal 🛑", "POS Tagging 🏷️", "Stemming 🌱", "Lemmatization 🌿", "Text Normalization 🧮", "N-Grams 🔢", "Keyword Extraction 🔑", "Synonym and Antonym Detection 🔤", "Text Similarity 🔄", "Text Complexity Analysis 📊", "Word Cloud ☁️", "Quick Links 🔗"])
 
 def clear_session_state():
     st.session_state.pop("input_type", None)
@@ -585,3 +585,21 @@ elif page == "Word Cloud ☁️":
             generate_word_cloud(normalized_tokens)
     else:
         st.info("⚠️ Please provide text input, upload a file, or use an example dataset.")
+
+elif page == "Quick Links 🔗":
+    st.header("🔗 Quick Links")
+    st.write("Click on any link below to navigate to the respective application:")
+
+     links = {
+        "Model Craft": "https://modelcraft-uihxqxgjthmusarv6kscuz.streamlit.app/",
+        "Vision Wizard": "https://vision-wizard-durnsdepglthkhzx2peekt.streamlit.app/",
+        "Data Weaver": "https://aybzbegfeczo4yfievejqk.streamlit.app/",
+        "SkillSync": "https://skillsync-b8xdmwmdezbzf66qpbuj5j.streamlit.app/",
+        "TradeLens": "https://glseycvc2rbucwhk3esh85.streamlit.app/"
+    }
+    
+    for name, url in links.items():
+        if st.button(name):
+            st.write(f"Redirecting to [{name}]({url})...")
+            st.experimental_rerun()
+            st.markdown(f'<meta http-equiv="refresh" content="0; url={url}">', unsafe_allow_html=True)
